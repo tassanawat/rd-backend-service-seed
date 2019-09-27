@@ -1,0 +1,47 @@
+#"dev"
+---
+server:
+  port: 2019
+#  servlet:
+#    context-path: '/@project.artifactId@'
+spring:
+  profiles: dev
+  jpa:
+   show-sql: true
+   database-platform: th.go.rd.rdoffline.configuration.SQLiteDialect
+   hibernate:
+    naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+    ddl-auto: none
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:offline.db
+    username: sqlws
+    password: sqlws1
+
+  flyway:
+    enabled: true
+
+app-stacktrace-enable: true
+logging:
+  level:
+    root: INFO
+    org:
+      hibernate:
+      springframework:
+        web:
+          client:
+            RestTemplate: DEBUG
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+
+  file: ./log/${spring.application.name}.log
+
+
+
+
+
+

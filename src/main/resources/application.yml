@@ -1,0 +1,25 @@
+#Commonconfig
+spring:
+  application:
+    name: '@project.name@'
+  profiles:
+    active: dev
+  messages:
+    basename: i18n/message
+  data:
+    jpa:
+      repositories:
+        enabled: true
+
+application:
+  name: '@project.artifactId@'
+build:
+  version: '@project.version@'
+  timestamp: '@timestamp@'
+
+# Actuator Prometheus Endpoint
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, prometheus
